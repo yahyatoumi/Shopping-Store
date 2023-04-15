@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-infos {
+    font-family: "Gill Sans", sans-serif;
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+    height: 4vh;
+    padding: 0.5% 5%;
+    align-items: center;
+    background-color: #003d29;
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.drop-icon {
+    width: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header-left {
+    flex: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.header-middle {
+    flex: 2;
+    text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-right {
+    flex: 1;
+    display: flex;
+    /* background-color: aliceblue; */
+    /* position: relative; */
+}
+
+.language, .location {
+    cursor: pointer;
+    z-index: 2;
+}
+
+.language {
+    margin-left: 25%;
+    margin-right: 10%;
+    position: relative;
+}
+
+.langs-ul {
+    display: none;
+}
+
+.langs-ul-display {
+    display: block;
+    position: absolute;
+    list-style: none;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    width: 80px;
+    text-align: center;
+    /* align-items: center; */
+}
+
+.langs-ul-display li {
+    padding: 7px;
+    border: 1px white solid;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .header-infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 14vh;
+        padding: 0.5% 5%;
+        background-color: #003d29;
+    }
+
+    .header-middle {
+        align-self: center;
+        flex: 1;
+    }
+
+    .header-right {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .language, .location{
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    .header-infos {
+        display: flex;
+        flex: 2;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 10vh;
+        padding: 0.5% 5%;
+        align-items: center;
+        background-color: #003d29;
+    }
+
+    .header-middle {
+        display: none;
+        flex: 1;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .language {
+        margin-left: 0;
+        margin-right: 0;
+        position: relative;
+    }
+
+    .header-right {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        height: 5vh;
+        align-items: center;
+    }
+
 }

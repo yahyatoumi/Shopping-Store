@@ -1,0 +1,45 @@
+.description {
+    background-color: bisque;
+    background-image: url("https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e58c0997219ec01eb6_background-bg-min.png");
+    background-size: cover;
+    height: 100vh;
+    color: #003d29;
+    position: relative;
+    font-family: Inter, sans-serif;
+}
+
+.h1-1, .h1-2 {
+    position: absolute;
+    margin-left: 50px;
+    font-size: 65px;
+}
+
+.h1-1{
+    top: 20%;
+}
+
+.h1-2{
+    top: 35%;
+}
+
+.d-paragraph{
+    position: absolute;
+    margin-left: 50px;
+    top: 52%;
+    font-size: 22px;
+    width: 500px;
+    line-height: 1.6;
+}
+
+.description button{
+    position: absolute;
+    margin-left: 50px;
+    width: 180px;
+    height: 60px;
+    border: none;
+    background-color: #003d29;
+    border-radius: 30px;
+    top: 70%;
+    color: white;
+    font-size: 1.2em;
+}

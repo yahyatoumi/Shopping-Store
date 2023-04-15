@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Description from "./components/Description";
+import Infos from "./components/Infos";
+import Navbar from "./components/Navbar";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+
+const App = () => {
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        cacheTime: Infinity,
+        staleTime: Infinity,
+      },
+    },
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <QueryClientProvider client={client}>
+        <Routes>
+          <Route>
+            <Route path="/" element={
+              <>
+                <Infos />
+                <Navbar />
+                <Description/>
+              </>
+            } />
+          </Route>
+        </Routes>
+      </QueryClientProvider>
+    </Router>
   );
 }
 
