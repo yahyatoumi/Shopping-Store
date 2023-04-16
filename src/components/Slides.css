@@ -1,0 +1,27 @@
+.slides-container {
+    height: auto;
+    width: 100%;
+    /* background-color: rgb(211, 123, 8); */
+    /* position: relative; */
+}
+
+.slides-container h2 {
+    opacity: .8;
+    margin-left: 40px;
+    /* position: absolute; */
+    top: 10%;
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+@media (max-width: 990px) {
+    
+}
+
+@media (max-width: 770px) {
+
+    .slides-container h2 {
+        margin-left: 20px;
+        font-size: 24px;
+    }
+}

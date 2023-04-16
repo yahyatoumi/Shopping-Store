@@ -3,6 +3,8 @@ import Infos from "./components/Infos";
 import Navbar from "./components/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import TopCategories from "./components/TopCategories";
+import Slides from "./components/Slides";
 
 
 const App = () => {
@@ -24,6 +26,8 @@ const App = () => {
                 <Infos />
                 <Navbar />
                 <Description/>
+                <TopCategories/>
+                <Slides/>
               </>
             } />
           </Route>

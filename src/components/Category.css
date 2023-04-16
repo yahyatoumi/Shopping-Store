@@ -11,7 +11,6 @@
     font-size: small;
     border-radius: 10px;
     order: 1;
-    transition: all 1s;
 }
 
 .category-card h1 {
