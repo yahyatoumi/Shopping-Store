@@ -1,5 +1,3 @@
-import "./Category.css"
-
 interface Product {
     brand: string,
     category: string,

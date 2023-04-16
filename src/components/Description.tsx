@@ -1,5 +1,3 @@
-import "./Description.css"
-
 const Description = () => {
     return (
         <div className="description">

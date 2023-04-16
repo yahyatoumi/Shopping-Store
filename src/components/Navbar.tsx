@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import fetchData from "./fetchData";
 import image from "../icons/drop-down.png";
-import "./Navbar.css"
 import Category from "./Category";
 
 interface Product {

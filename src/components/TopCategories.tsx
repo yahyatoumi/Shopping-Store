@@ -1,4 +1,3 @@
-import "./TopCategories.css";
 const urls = [
     {
         id: 1,
