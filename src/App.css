@@ -34,8 +34,6 @@
 .header-right {
     flex: 1;
     display: flex;
-    /* background-color: aliceblue; */
-    /* position: relative; */
 }
 
 .language, .location {
@@ -61,7 +59,6 @@
     color: white;
     width: 80px;
     text-align: center;
-    /* align-items: center; */
 }
 
 .langs-ul-display li {
@@ -140,10 +137,6 @@
 
 /* navbar */
 
-body {
-    /* background-color: #172822; */
-}
-
 nav .big-screen {
     font-family: "Gill Sans", sans-serif;
     font-size: medium;
@@ -152,7 +145,6 @@ nav .big-screen {
     align-items: center;
     padding: 0 3%;
     height: 13vh;
-    /* background-color: aqua; */
 }
 
 nav .small-screen-nav {
@@ -240,14 +232,12 @@ nav .small-screen-nav {
 }
 
 .search-bar input:focus {
-    /* outline: none; */
     outline: solid 1px rgb(32, 152, 192);
 }
 
 .category {
     display: flex;
     justify-content: space-around;
-    /* background-color: aqua; */
     width: 25%;
     position: relative;
 }
@@ -300,7 +290,6 @@ nav .small-screen-nav {
     .small-screen-nav ul {
         display: flex;
         flex-direction: column;
-        /* height: 200px; */
         justify-content: space-around;
         align-items: center;
         list-style: none;
@@ -309,7 +298,6 @@ nav .small-screen-nav {
     .small-screen-nav .category {
         display: flex;
         justify-content: space-around;
-        /* background-color: aqua; */
         width: 25%;
         position: relative;
     }
@@ -550,12 +538,10 @@ nav .small-screen-nav {
 
 .top-categories {
     height: 60vh;
-    /* height: auto; */
     width: 100%;
     max-width: 1360px;
     margin-right: auto;
     margin-left: auto;
-    /* background-color:rgb(244, 149, 23); */
     position: relative;
 }
 
@@ -563,13 +549,10 @@ nav .small-screen-nav {
     opacity: .8;
     margin-left: 40px;
     margin-top: 5%;
-    /* position: absolute; */
-    /* top: 15%; */
     font-size: 28px;
 }
 
 .top-categories .photos {
-    /* position: absolute; */
     top: 10%;
     width: calc(100% - 60px);
     margin: 0 40px;
@@ -631,10 +614,6 @@ nav .small-screen-nav {
         margin-left: 20px;
     }
 
-    .top-categories {
-        /* height: 220vh; */
-    }
-
     .top-categories div {
         width: 48%;
         margin-bottom: 10px;
@@ -650,14 +629,11 @@ nav .small-screen-nav {
 .slides-container {
     height: auto;
     width: 100%;
-    /* background-color: rgb(211, 123, 8); */
-    /* position: relative; */
 }
 
 .slides-container h2 {
     opacity: .8;
     margin-left: 40px;
-    /* position: absolute; */
     top: 10%;
     font-size: 28px;
     margin-top: 10px;
