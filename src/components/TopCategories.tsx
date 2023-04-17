@@ -32,19 +32,22 @@ const urls = [
 ]
 
 const TopCategories = () => {
-    return <div className="top-categories">
-        <h2>Shop Our Top Categories</h2>
-        <div className="photos">
-            {urls.map((pic) => (
-                <div key={pic.id} className="top-c-pic">
-                    <div>
-                        <img src={pic.url} alt="" ></img>
-                        <p>{pic.type}</p>
+    return <>
+        <div className="top-categories">
+            <h2>Shop Our Top Categories</h2>
+            <div className="photos">
+                {urls.map((pic) => (
+                    <div key={pic.id} className="top-c-pic">
+                        <div>
+                            <img src={pic.url} alt="" ></img>
+                            <p>{pic.type}</p>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
-    </div>
+        <h2 className="h2-deals">Todays Best Deals For You!</h2>
+    </>
 
 }
 
