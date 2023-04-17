@@ -668,7 +668,8 @@ nav .small-screen-nav {
 
 .slides-container {
     height: auto;
-    width: 100%;
+    width: calc(98.5%);
+    overflow-x: scroll;
 }
 
 .slides-container h2 {
@@ -687,19 +688,23 @@ nav .small-screen-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 40px;
 }
 
 .slider .product {
     height: 80%;
+    width: calc((100% - 40px) / 3);
     width: 15%;
     background-color: rgb(247, 244, 244);
 }
 
 .slider .product-pic {
-    width: 100%;
-    margin: 10px auto;
+    /* width: 100%; */
+    /* margin: 10px auto; */
     background-color: #003d29;
+}
+
+.slider {
+    margin-left: 40px;
 }
 
 @media (max-width: 990px) {}
