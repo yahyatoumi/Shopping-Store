@@ -36,9 +36,11 @@ const TopCategories = () => {
         <h2>Shop Our Top Categories</h2>
         <div className="photos">
             {urls.map((pic) => (
-                <div key={pic.id}>
-                    <img src={pic.url} alt="" ></img>
-                    <p>{pic.type}</p>
+                <div key={pic.id} className="top-c-pic">
+                    <div>
+                        <img src={pic.url} alt="" ></img>
+                        <p>{pic.type}</p>
+                    </div>
                 </div>
             ))}
         </div>
