@@ -722,7 +722,7 @@ nav .small-screen-nav {
     font-size: 0.8em;
     opacity: .7;
     margin-top: 10px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     overflow:hidden
     /* display: none; */
 }

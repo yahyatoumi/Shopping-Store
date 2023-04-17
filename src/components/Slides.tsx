@@ -38,9 +38,9 @@ const Slides = () => {
                         <p className="name">{product.title}</p>
                         <p className="prix">{product.price + "$"}</p>
                     </div>
-                    <div className="produt-description">
+                    <p className="produt-description">
                         {product.description}
-                    </div>
+                    </p>
                     <div className="rating">
                         <div className="stars">*****</div>
                         <p className="n-of-votes">
