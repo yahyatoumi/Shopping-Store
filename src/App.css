@@ -691,9 +691,8 @@ nav .small-screen-nav {
 
 
 .slider .product {
-    width: calc(100% / 3);
+    width: 16%;
     margin-right: 20px;
-    /* background-color: #003d29; */
 }
 
 .slider .product-pic {
@@ -703,6 +702,10 @@ nav .small-screen-nav {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.slider .product-pic img {
+    width: 80%;
 }
 
 @media (max-width: 990px) {
