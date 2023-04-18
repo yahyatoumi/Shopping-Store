@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import fetchData from "./fetchData";
+import RatingStarts from "./RatingStarts";
 
 interface Product {
     brand: string,
@@ -29,23 +30,22 @@ const Slides = () => {
     }, [data, products]);
     return <div className="slides-container">
         <div className="slider">
-            {products ? products.slice(0, 6).map((product) => (
-                <div className="product">
+            {products ? products.slice(10, 16).map((product) => (
+                <div className="product" key={product.id}>
                     <div className="product-pic">
-                        <img src="https://uploads-ssl.webflow.com/63e857eaeaf853471d5335ff/63e8c4e7e006821d3b04db74_Tote%20Medium-min.png" alt="" />
+                        <img src={product.images[0]} alt="" />
                     </div>
                     <div className="name-and-prix">
                         <p className="name">{product.title}</p>
                         <p className="prix">{product.price + "$"}</p>
                     </div>
-                    <p className="produt-description">
-                        {product.description}
+                    <p className="produt-description" title={product.description}>
+                        {product.description.slice(0, 150) + "..."}
                     </p>
                     <div className="rating">
-                        <div className="stars">*****</div>
-                        <p className="n-of-votes">
-                            {"(121)"}
-                        </p>
+                        <div className="stars">
+                            <p>{product.rating}</p><RatingStarts rate={product.rating}/>
+                        </div>
                     </div>
                     <button className="add-button">Add to card</button>
                 </div>

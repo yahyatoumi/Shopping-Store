@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import fetchData from "./fetchData";
-import image from "../icons/drop-down.png";
 import Category from "./Category";
+import { FaAngleDown } from "react-icons/fa"
 
 interface Product {
     brand: string,
@@ -35,7 +35,7 @@ const Navbar = () => {
                 <ul>
                     <li className="category" onClick={() => setCategoryDisplayed(!categoryDisplayed)}>
                         Category
-                        <img src={image} alt="" className="category-icon" />
+                        <FaAngleDown/>
                     </li>
                     {categoryDisplayed ? <Category products={products ? products.slice(0, 6) : []} /> : ""}
                     <li>Deals</li>
@@ -73,7 +73,7 @@ const Navbar = () => {
             <ul>
                 <li className="category" onClick={() => setCategoryDisplayed(!categoryDisplayed)}>
                     Category
-                    <img src={image} alt="" className="category-icon" />
+                    <FaAngleDown/>
                 </li>
                 {categoryDisplayed ? <Category products={products ? products.slice(0, 6) : []} /> : ""}
                 <li>Deals</li>
