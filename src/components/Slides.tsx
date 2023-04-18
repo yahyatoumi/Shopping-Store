@@ -25,9 +25,10 @@ const Slides = () => {
             setProducts(data);
         }
     }, [data, products]);
+    const rand = Math.floor(Math.random() * 23);
     return <div className="slides-container">
         <div className="slider">
-            {products ? products.slice(10, 16).map((product) => (
+            {products ? products.slice(rand, rand + 6).map((product) => (
                 <div className="product" key={product.id}>
                     <div className="product-pic">
                         <img src={product.images[0]} alt="" />

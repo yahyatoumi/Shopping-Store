@@ -1,5 +1,5 @@
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { FaStarHalfAlt } from 'react-icons/fa';
+import { FaStarHalf } from 'react-icons/fa';
 
 const RatingStarts = ({ rate }: { rate: number }) => {
     const stars = [];
@@ -8,7 +8,7 @@ const RatingStarts = ({ rate }: { rate: number }) => {
         if (i < floor) {
             stars.push(<AiFillStar key={i} className='start-icon'/>);
         }else if((rate - i) * 10 % 10 >= 5){
-            stars.push(<FaStarHalfAlt key={i} className='start-icon' />);
+            stars.push(<FaStarHalf key={i} className='start-icon' />);
         } else {
             stars.push(<AiOutlineStar key={i} className='start-icon'/>);
         }
