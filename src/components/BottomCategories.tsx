@@ -33,8 +33,8 @@ const BottomCategories = () => {
     return <div className="bottom-categories">
         <h2>Todays Best Deals For You!</h2>
         <ul>
-            {categories.map((category) => <li key={i++} onClick={() => setCategory(category)}>
-                {category}
+            {categories.map((c) => <li key={i++} onClick={() => setCategory(c)} className={c === category ? "selected" : ""}>
+                {c}
             </li>)}
         </ul>
         <div className="category-items">
@@ -44,7 +44,7 @@ const BottomCategories = () => {
                         <img src={product.images[0]} alt="" />
                     </div>
                     <div className="name-and-prix">
-                        <p className="name">{product.title}</p>
+                        <p className="name" title={product.title}>{product.title}</p>
                         <p className="prix">{product.price + "$"}</p>
                     </div>
                     <p className="produt-description" title={product.description}>
