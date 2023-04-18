@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
+import { useState, useEffect } from "react"
+import { useQuery } from "react-query"
 import fetchData from "./fetchData";
 import RatingStarts from "./RatingStarts";
 
@@ -17,17 +17,28 @@ interface Product {
     title: string
 }
 
-const Slides = () => {
+const BottomCategories = () => {
     const [products, setProducts] = useState<Product[]>();
+    const [category, setCategory] = useState("smartphones");
     const { data } = useQuery<Product[]>("products", fetchData);
+    const categories = ["smartphones", "laptops", "fragrances", "skincare", "groceries", "home-decoration"];
+    let i = 0;
+
     useEffect(() => {
         if (data) {
-            setProducts(data);
+            setProducts(data);   
         }
-    }, [data, products]);
-    return <div className="slides-container">
-        <div className="slider">
-            {products ? products.slice(10, 16).map((product) => (
+    }, [data, products])
+    const results = products ? products.filter(products => products.category === category) : [];
+    return <div className="bottom-categories">
+        <h2>Todays Best Deals For You!</h2>
+        <ul>
+            {categories.map((category) => <li key={i++} onClick={() => setCategory(category)}>
+                {category}
+            </li>)}
+        </ul>
+        <div className="category-items">
+            {results.map((product) => 
                 <div className="product" key={product.id}>
                     <div className="product-pic">
                         <img src={product.images[0]} alt="" />
@@ -41,14 +52,14 @@ const Slides = () => {
                     </p>
                     <div className="rating">
                         <div className="stars">
-                            <p>{product.rating}</p><RatingStarts rate={product.rating}/>
+                            <p>{product.rating}</p><RatingStarts rate={product.rating} />
                         </div>
                     </div>
                     <button className="add-button">Add to card</button>
                 </div>
-            )) : ""}
+            )}
         </div>
     </div>
 }
 
-export default Slides;
+export default BottomCategories;

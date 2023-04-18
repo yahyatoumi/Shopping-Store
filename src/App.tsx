@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TopCategories from "./components/TopCategories";
 import Slides from "./components/Slides";
+import BottomCategories from "./components/BottomCategories";
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
                 <Description/>
                 <TopCategories/>
                 <Slides/>
+                <BottomCategories/>
               </>
             } />
           </Route>
