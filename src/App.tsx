@@ -6,9 +6,11 @@ import TopCategories from "./components/TopCategories";
 import Slides from "./components/Slides";
 import BottomCategories from "./components/BottomCategories";
 import ProductContext from "./components/ProductsContext";
-import { useEffect, useState } from "react";
+import CartItemsContext from "./components/CartItemsContext";
+import { useContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import fetchData from "./components/fetchData";
+import Cart from "./components/Cart";
 
 interface Product {
   brand: string,
@@ -26,16 +28,18 @@ interface Product {
 
 const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const {data} = useQuery<Product[]>("products", fetchData);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const { data } = useQuery<Product[]>("products", fetchData);
   useEffect(() => {
     if (data)
       setProducts(data)
-  }
-  ,[data])
+  }, [data])
+
 
   return (
     <Router>
-        <ProductContext.Provider value={[products, setProducts]}>
+      <ProductContext.Provider value={[products, setProducts]}>
+        <CartItemsContext.Provider value={[cartItems, setCartItems]}>
           <Routes>
             <Route>
               <Route path="/" element={
@@ -46,11 +50,13 @@ const App = () => {
                   <TopCategories />
                   <Slides />
                   <BottomCategories />
+                  <Cart />
                 </>
               } />
             </Route>
           </Routes>
-        </ProductContext.Provider>
+        </CartItemsContext.Provider>
+      </ProductContext.Provider>
     </Router>
   );
 }

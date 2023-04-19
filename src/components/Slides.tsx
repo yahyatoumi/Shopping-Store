@@ -1,8 +1,7 @@
-import { useEffect, useContext } from "react";
-import { useQuery } from "react-query";
-import fetchData from "./fetchData";
+import { useContext } from "react";
 import RatingStarts from "./RatingStarts";
 import ProductContext from "./ProductsContext";
+import CartItemsContext from "./CartItemsContext";
 
 interface Product {
     brand: string,
@@ -20,10 +19,16 @@ interface Product {
 
 const Slides = () => {
     const [products] = useContext(ProductContext)
-    const rand = Math.floor(Math.random() * 23);
+    const [cartItems, setCartItems] = useContext(CartItemsContext);
+
+    const addToItems = (product: Product) => {
+        if (!cartItems.some(p => p.id === product.id))
+            setCartItems([...cartItems, product]);
+    }
+    // const rand = Math.floor(Math.random() * 23);
     return <div className="slides-container">
         <div className="slider">
-            {products ? products.slice(rand, rand + 6).map((product) => (
+            {products ? products.slice(0, 6).map((product) => (
                 <div className="product" key={product.id}>
                     <div className="product-pic">
                         <img src={product.images[0]} alt="" />
@@ -40,7 +45,7 @@ const Slides = () => {
                             <p>{product.rating}</p><RatingStarts rate={product.rating}/>
                         </div>
                     </div>
-                    <button className="add-button">Add to card</button>
+                    <button className="add-button" onClick={() => {addToItems(product)}}>Add to card</button>
                 </div>
             )) : ""}
         </div>

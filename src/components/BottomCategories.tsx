@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
-import { useQuery } from "react-query"
-import fetchData from "./fetchData";
+import { useState } from "react"
 import RatingStarts from "./RatingStarts";
 import ProductContext from "./ProductsContext";
 import { useContext } from "react";
+import CartItemsContext from "./CartItemsContext";
 
 interface Product {
     brand: string,
@@ -21,9 +20,14 @@ interface Product {
 
 const BottomCategories = () => {
     const [products] = useContext(ProductContext);
+    const [cartItems, setCartItems] = useContext(CartItemsContext);
     const [category, setCategory] = useState("smartphones");
     const categories = ["smartphones", "laptops", "fragrances", "skincare", "groceries", "home-decoration"];
     let i = 0;
+    const addToItems = (product: Product) => {
+        if (!cartItems.some(p => p.id === product.id))
+            setCartItems([...cartItems, product]);
+    }
 
     const results = products ? products.filter(products => products.category === category) : [];
     return <div className="bottom-categories">
@@ -51,7 +55,7 @@ const BottomCategories = () => {
                             <p>{product.rating}</p><RatingStarts rate={product.rating} />
                         </div>
                     </div>
-                    <button className="add-button">Add to card</button>
+                    <button className="add-button" onClick={() => addToItems(product)}>Add to card</button>
                 </div>
             )}
         </div>
