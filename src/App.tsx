@@ -1,40 +1,56 @@
 import Description from "./components/Description";
 import Infos from "./components/Infos";
 import Navbar from "./components/Navbar";
-import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TopCategories from "./components/TopCategories";
 import Slides from "./components/Slides";
 import BottomCategories from "./components/BottomCategories";
+import ProductContext from "./components/ProductsContext";
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import fetchData from "./components/fetchData";
 
+interface Product {
+  brand: string,
+  category: string,
+  description: string,
+  discountPercentage: number,
+  id: number,
+  images: string[],
+  price: number,
+  rating: number,
+  stock: number,
+  thumbnail: string,
+  title: string
+}
 
 const App = () => {
-  const client = new QueryClient({
-    defaultOptions: {
-      queries: {
-        cacheTime: Infinity,
-        staleTime: Infinity,
-      },
-    },
-  });
+  const [products, setProducts] = useState<Product[]>([]);
+  const {data} = useQuery<Product[]>("products", fetchData);
+  useEffect(() => {
+    if (data)
+      setProducts(data)
+  }
+  ,[data])
+
   return (
     <Router>
-      <QueryClientProvider client={client}>
-        <Routes>
-          <Route>
-            <Route path="/" element={
-              <>
-                <Infos />
-                <Navbar />
-                <Description/>
-                <TopCategories/>
-                <Slides/>
-                <BottomCategories/>
-              </>
-            } />
-          </Route>
-        </Routes>
-      </QueryClientProvider>
+        <ProductContext.Provider value={[products, setProducts]}>
+          <Routes>
+            <Route>
+              <Route path="/" element={
+                <>
+                  <Infos />
+                  <Navbar />
+                  <Description />
+                  <TopCategories />
+                  <Slides />
+                  <BottomCategories />
+                </>
+              } />
+            </Route>
+          </Routes>
+        </ProductContext.Provider>
     </Router>
   );
 }

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { useQuery } from "react-query"
 import fetchData from "./fetchData";
 import RatingStarts from "./RatingStarts";
+import ProductContext from "./ProductsContext";
+import { useContext } from "react";
 
 interface Product {
     brand: string,
@@ -18,17 +20,11 @@ interface Product {
 }
 
 const BottomCategories = () => {
-    const [products, setProducts] = useState<Product[]>();
+    const [products] = useContext(ProductContext);
     const [category, setCategory] = useState("smartphones");
-    const { data } = useQuery<Product[]>("products", fetchData);
     const categories = ["smartphones", "laptops", "fragrances", "skincare", "groceries", "home-decoration"];
     let i = 0;
 
-    useEffect(() => {
-        if (data) {
-            setProducts(data);   
-        }
-    }, [data, products])
     const results = products ? products.filter(products => products.category === category) : [];
     return <div className="bottom-categories">
         <h2>Todays Best Deals For You!</h2>

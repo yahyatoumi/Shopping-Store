@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useQuery } from "react-query";
 import fetchData from "./fetchData";
 import RatingStarts from "./RatingStarts";
+import ProductContext from "./ProductsContext";
 
 interface Product {
     brand: string,
@@ -18,13 +19,7 @@ interface Product {
 }
 
 const Slides = () => {
-    const [products, setProducts] = useState<Product[]>();
-    const { data } = useQuery<Product[]>("products", fetchData);
-    useEffect(() => {
-        if (data) {
-            setProducts(data);
-        }
-    }, [data, products]);
+    const [products] = useContext(ProductContext)
     const rand = Math.floor(Math.random() * 23);
     return <div className="slides-container">
         <div className="slider">

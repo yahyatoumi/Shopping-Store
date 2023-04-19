@@ -1,31 +1,11 @@
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
-import fetchData from "./fetchData";
+import { useState } from "react";
 import Category from "./Category";
 import { FaAngleDown } from "react-icons/fa"
-
-interface Product {
-    brand: string,
-    category: string,
-    description: string,
-    discountPercentage: number,
-    id: number,
-    images: string[],
-    price: number,
-    rating: number,
-    stock: number,
-    thumbnail: string,
-    title: string
-}
+import ProductContext from "./ProductsContext";
 
 const Navbar = () => {
     const [categoryDisplayed, setCategoryDisplayed] = useState(false);
     const [displayMenu, setDisplayMenu] = useState(false);
-    const [products, setProducts] = useState<Product[]>();
-    const { data } = useQuery<Product[]>("products", fetchData);
-    useEffect(() => {
-        setProducts(data);
-    }, [data])
     return <nav>
         <div className="big-screen">
             <div className="logo">
@@ -37,7 +17,10 @@ const Navbar = () => {
                         Category
                         <FaAngleDown/>
                     </li>
-                    {categoryDisplayed ? <Category products={products ? products.slice(0, 6) : []} /> : ""}
+                    
+                    {categoryDisplayed ? <ProductContext.Consumer>
+                        {value => <Category products={value[0] ? value[0].slice(0, 6) : []} /> }
+                    </ProductContext.Consumer>  : ""}
                     <li>Deals</li>
                     <li>Whats's New</li>
                     <li>Delivery</li>
@@ -75,7 +58,9 @@ const Navbar = () => {
                     Category
                     <FaAngleDown/>
                 </li>
-                {categoryDisplayed ? <Category products={products ? products.slice(0, 6) : []} /> : ""}
+                {categoryDisplayed ? <ProductContext.Consumer>
+                    {value => <Category products={value[0] ? value[0].slice(0, 6) : []} />}
+                </ProductContext.Consumer> : ""}
                 <li>Deals</li>
                 <li>Whats's New</li>
                 <li>Delivery</li>
