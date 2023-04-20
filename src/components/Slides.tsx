@@ -17,6 +17,7 @@ interface Product {
     title: string
 }
 
+
 const Slides = () => {
     const [products] = useContext(ProductContext)
     const [cartItems, setCartItems] = useContext(CartItemsContext);

@@ -1107,7 +1107,18 @@ nav .small-screen-nav {
 
 /* cart */
 
-.cart .icons-container {
+.cart {
+    margin: 20px auto;
+    width: 70%;
+    /* height: auto; */
+    /* overflow-y: scroll; */
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+
+.icons-container {
     width: 30px;
     height: 30px;
     background-color: white;
@@ -1120,16 +1131,16 @@ nav .small-screen-nav {
     box-shadow: 1px 1px 20px rgb(15, 15, 15, .5);
 }
 
-.cart .icons-container:hover {
+.icons-container:hover {
     background-color: #aaa;
 }
 
-.cart .cart-icon {
+.icons-container .cart-icon {
     width: 100%;
     height: 100%;
 }
 
-.cart .items-selected {
+.icons-container .items-selected {
     background-color: red;
     text-align: center;
     font-size: 15px;
@@ -1142,4 +1153,105 @@ nav .small-screen-nav {
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.cart .the-cart {
+    width: 100%;
+    /* height: 400px; */
+}
+
+.the-cart img {
+    width: 80px;
+    height: 80px;
+}
+
+.cart .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    background-color: #aaa;
+    position: sticky;
+    top: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.item-holder {
+    display: flex;
+    justify-content: space-between;
+    height: 160px;
+    line-height: 150px;
+    border-bottom: 1px solid grey;
+}
+
+.cart .pic-holder {
+    width: 120px;
+    height: 120px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.cart .infos {
+    /* display: flex;
+    align-items: center;
+    position: relative; */
+}
+
+.cart .infos p {
+    line-height: 20px;
+    margin: 10px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.cart .infos, .cart .amount, .cart .price, .cart .total {
+    font-weight: bold;
+    width: 25%;
+}
+
+.cart .price, .cart .total {
+    text-align: center;
+}
+
+.cart .amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart .amount div {
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: red;
+    line-height: 40px;
+    text-align: center;
+    margin: 10px;
+}
+
+.cart .amount button {
+    height: 40px;
+    width: 40px;
+    /* outline: none; */
+    border: none;
+    background-color: rgb(170, 167, 167, .2);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.75);
 }
