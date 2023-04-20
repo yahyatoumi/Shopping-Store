@@ -773,7 +773,7 @@ nav .small-screen-nav {
 .slider button {
     color: black;
     margin-top: 10px;
-    width: 30%;
+    width: 35%;
     /* height: auto; */
     font-size: 15px;
     padding: 8px;
@@ -1143,7 +1143,7 @@ nav .small-screen-nav {
     height: 100%;
 }
 
-#cart{
+#cart {
     height: 100%;
     width: 100%;
 }
@@ -1174,7 +1174,7 @@ nav .small-screen-nav {
     height: 80px;
 }
 
-.the-cart{
+.the-cart {
     position: relative;
     height: 100%;
     width: 100%;
@@ -1193,7 +1193,7 @@ nav .small-screen-nav {
     border-radius: 10px 10px 0 0;
 }
 
-.items-holder{
+.items-holder {
     margin-top: 60px;
 }
 
@@ -1291,7 +1291,7 @@ nav .small-screen-nav {
     max-height: 100%;
 }
 
-.total-price{
+.total-price {
     width: 100%;
     display: flex;
     justify-content: right;
@@ -1300,14 +1300,37 @@ nav .small-screen-nav {
     font-family: sans-serif;
 }
 
-.total-price p{
+.total-price p {
     width: 25%;
     text-align: center;
 }
 
-.shopping-cart .name{
+.shopping-cart .name {
     font-size: 12px;
     font-weight: bold;
+}
+
+.shopping-cart .total {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.shopping-cart .total .remove {
+    margin-left: 20px;
+    height: 30px;
+    width: 60px;
+    background-color: rgba(242, 26, 26, 0.9);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.shopping-cart .total .remove:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
 }
 
 @keyframes slide-down {

@@ -2,10 +2,11 @@ import { CgShoppingCart } from "react-icons/cg"
 import CartItemsContext from "./CartItemsContext";
 import { useContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+// import { BsFillTrashFill } from "react-icons/bs"
 
 const Cart = () => {
     const [totalPrice, setTotalPrice] = useState(0);
-    const [cartItems] = useContext(CartItemsContext);
+    const [cartItems, setCartItems] = useContext(CartItemsContext);
     const [cartDisplayed, setCartDisplayed] = useState(false);
     const [itemQuantities, setItemQuantities] = useState<{ [key: number]: number }>({});
 
@@ -33,6 +34,10 @@ const Cart = () => {
     const BackDrop = (props: { onClose: () => void }) => {
         return <div className="backdrop" onClick={props.onClose} />
     };
+
+    const removeHandler = (itemId: number) => {
+        setCartItems(cartItems.filter((item) => item.id !== itemId))
+    }
 
     // useEffect(() => {
     //     if (cartItems.length)
@@ -75,6 +80,7 @@ const Cart = () => {
                             </div>
                             <div className="total">
                                 {itemQuantities[item.id] ? "$" + item.price * itemQuantities[item.id] : "$0"}
+                                <button className="remove" onClick={() => removeHandler(item.id)}>remove</button>
                             </div>
                         </div>
                     )}
