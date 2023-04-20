@@ -35,8 +35,12 @@ const Cart = () => {
         return <div className="backdrop" onClick={props.onClose} />
     };
 
-    const removeHandler = (itemId: number) => {
+    const removeHandler = (itemId: number, price: number) => {
         setCartItems(cartItems.filter((item) => item.id !== itemId))
+        setTotalPrice(totalPrice - (itemQuantities[itemId] * price))
+        const newQuantities = { ...itemQuantities };
+        newQuantities[itemId] = (newQuantities[itemId] || 0) + 1;
+        setItemQuantities(newQuantities)
     }
 
     // useEffect(() => {
@@ -80,7 +84,7 @@ const Cart = () => {
                             </div>
                             <div className="total">
                                 {itemQuantities[item.id] ? "$" + item.price * itemQuantities[item.id] : "$0"}
-                                <button className="remove" onClick={() => removeHandler(item.id)}>remove</button>
+                                <button className="remove" onClick={() => removeHandler(item.id, item.price)}>remove</button>
                             </div>
                         </div>
                     )}
