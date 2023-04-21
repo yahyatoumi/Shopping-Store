@@ -842,9 +842,7 @@ nav .small-screen-nav {
 
 @media (max-width: 990px) {
     .slides-container {
-        width: calc(100% - 30px);
-        /* overflow-x: scroll; */
-        /* margin-left: 30px; */
+        /* width: calc(100% - 30px); */
     }
 
     .slider {
@@ -863,7 +861,7 @@ nav .small-screen-nav {
     }
 
     .h2-deals {
-        margin-left: 30px;
+        margin-left: 15px;
         font-size: 24px;
     }
 
