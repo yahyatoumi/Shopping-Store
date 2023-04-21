@@ -3,22 +3,6 @@ import RatingStarts from "./RatingStarts";
 import ProductContext from "../Contexts/ProductsContext";
 import CartItemsContext from "../Contexts/CartItemsContext";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
-import { motion } from "framer-motion"
-
-interface Product {
-    brand: string,
-    category: string,
-    description: string,
-    discountPercentage: number,
-    id: number,
-    images: string[],
-    price: number,
-    rating: number,
-    stock: number,
-    thumbnail: string,
-    title: string
-}
-
 
 const Slides = () => {
     const [products] = useContext(ProductContext)

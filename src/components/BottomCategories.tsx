@@ -4,20 +4,6 @@ import ProductContext from "../Contexts/ProductsContext";
 import { useContext } from "react";
 import CartItemsContext from "../Contexts/CartItemsContext";
 
-interface Product {
-    brand: string,
-    category: string,
-    description: string,
-    discountPercentage: number,
-    id: number,
-    images: string[],
-    price: number,
-    rating: number,
-    stock: number,
-    thumbnail: string,
-    title: string
-}
-
 const BottomCategories = () => {
     const [products] = useContext(ProductContext);
     const [cartItems, setCartItems] = useContext(CartItemsContext);
