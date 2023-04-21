@@ -680,9 +680,11 @@ nav .small-screen-nav {
 .slides-container {
     width: calc(100% - 40px);
     overflow-x: scroll;
-    margin-left: 40px;
+    margin-left: -10px;
     /* height: auto; */
     height: 80vh;
+    scroll-behavior: smooth;
+    position: relative;
 }
 
 .h2-deals {
@@ -702,6 +704,7 @@ nav .small-screen-nav {
     align-items: center;
     font-family: Inter, sans-serif;
     height: 100%;
+    position: relative;
 }
 
 
@@ -710,6 +713,39 @@ nav .small-screen-nav {
     margin-right: 20px;
     height: 100%;
     /* white-space: nowrap; */
+    /* pointer-events: none; */
+}
+
+.right-button, .left-button {
+    position: sticky;
+    margin-bottom: 20px;
+    width: 20px;
+    height: 20px;
+    color: black;
+    background-color: rgb(198, 197, 197);
+    border-radius: 25px;
+    padding: 15px;
+    outline: none;
+    cursor: pointer;
+    z-index: 10;
+    /* added to center vertically */
+    /* transition: transform 0.1s linear; */
+}
+
+.right-button {
+    /* transform: translateX(-50%); */
+    margin-right: 0;
+    right: 0;
+}
+
+.left-button {
+    transform: translateX(50%);
+    margin-right: 0;
+    left: 0;
+}
+
+.right-button:active {
+    transform: translateY(-50%), scale(.9);
 }
 
 .slider .product-pic {
@@ -721,12 +757,14 @@ nav .small-screen-nav {
     width: 100%;
     height: 60%;
     overflow: hidden;
+    /* user-select: none; */
+    pointer-events: all;
     /* background-color: #003d29; */
 }
 
 .slider .product-pic img {
     width: 60%;
-    min-height: 40%;
+    height: 60%;
     border-radius: 20px;
     transition: .5s;
     /* object-fit: cover; */
@@ -806,7 +844,7 @@ nav .small-screen-nav {
     .slides-container {
         width: calc(100% - 30px);
         /* overflow-x: scroll; */
-        margin-left: 30px;
+        /* margin-left: 30px; */
     }
 
     .slider {
@@ -828,9 +866,17 @@ nav .small-screen-nav {
         margin-left: 30px;
         font-size: 24px;
     }
+
+    .slider button {
+        margin-top: 10px;
+        width: 60%;
+        font-size: 12px;
+        padding: 8px;
+        /* background-color: #eee; */
+    }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 600px) {
 
     .slider .produt-description {
         font-size: .7em;
@@ -843,26 +889,30 @@ nav .small-screen-nav {
     }
 
     .slides-container {
+        height: 70vh;
         width: calc(100% - 15px);
         overflow-x: scroll;
         margin-left: 15px;
     }
 
+    .slider {
+        width: 600%;
+    }
+
     .slider .product {
-        /* display: none; */
-        width: 15%;
+        width: 100%;
+        margin-right: 0;
         margin-right: 20px;
-        /* background-color: #003d29; */
     }
 
     .h2-deals {
-        margin-left: 15px;
+        margin-left: 10px;
         font-size: 24px;
     }
 
     .slider button {
         margin-top: 10px;
-        width: 60%;
+        width: 40%;
         font-size: 12px;
         padding: 8px;
         /* background-color: #eee; */
@@ -875,8 +925,12 @@ nav .small-screen-nav {
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 50%;
+        height: 60%;
         /* background-color: #003d29; */
+    }
+
+    .right-button, .left-button {
+        display: none;
     }
 }
 
@@ -1109,15 +1163,17 @@ nav .small-screen-nav {
 
 .shopping-cart {
     position: fixed;
+    left: 20%;
     top: 15vh;
-    left: 5%;
-    width: 90%;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    z-index: 30;
+    /* padding: 1rem; */
+    background: #fff;
+    border-radius: 5px;
+    height: 70%;
+    width: 60%;
     animation: slide-down 300ms ease-out forwards;
+    overflow: scroll;
+    z-index: 30;
+    border-radius: 20px;
 }
 
 
@@ -1272,19 +1328,7 @@ nav .small-screen-nav {
 }
 
 
-.shopping-cart {
-    position: fixed;
-    left: 20%;
-    top: 15vh;
-    background: #fff;
-    border-radius: 5px;
-    height: 70%;
-    width: 60%;
-    animation: slide-down 300ms ease-out forwards;
-    overflow: scroll;
-    z-index: 30;
-    border-radius: 20px;
-}
+
 
 .cart-content {
     overflow-y: auto;
@@ -1331,6 +1375,18 @@ nav .small-screen-nav {
     background-color: white;
     color: red;
     border: 1px solid red;
+}
+
+#cart {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 990px) {
+    .shopping-cart {
+        width: 80%;
+        left: 10%;
+    }
 }
 
 @keyframes slide-down {
