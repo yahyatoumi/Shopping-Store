@@ -1,5 +1,5 @@
 import { CgShoppingCart } from "react-icons/cg"
-import CartItemsContext from "./CartItemsContext";
+import CartItemsContext from "../Contexts/CartItemsContext";
 import { useContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // import { BsFillTrashFill } from "react-icons/bs"

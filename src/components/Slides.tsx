@@ -1,7 +1,7 @@
 import { useContext, useRef, useState, useEffect } from "react";
 import RatingStarts from "./RatingStarts";
-import ProductContext from "./ProductsContext";
-import CartItemsContext from "./CartItemsContext";
+import ProductContext from "../Contexts/ProductsContext";
+import CartItemsContext from "../Contexts/CartItemsContext";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
 import { motion } from "framer-motion"
 
@@ -49,7 +49,7 @@ const Slides = () => {
     // const rand = Math.floor(Math.random() * 23);
     return (
         <div className="slides-container" ref={slider}>
-            <div  className="slider">
+            <div className="slider">
                 <AiOutlineLeft className="left-button" onClick={handleScrollLeft} />
                 {products ? products.slice(0, 6).map((product) => (
                     <div className="product" key={product.id}>

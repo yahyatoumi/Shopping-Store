@@ -1,8 +1,8 @@
 import { useState } from "react"
 import RatingStarts from "./RatingStarts";
-import ProductContext from "./ProductsContext";
+import ProductContext from "../Contexts/ProductsContext";
 import { useContext } from "react";
-import CartItemsContext from "./CartItemsContext";
+import CartItemsContext from "../Contexts/CartItemsContext";
 
 interface Product {
     brand: string,
@@ -38,7 +38,7 @@ const BottomCategories = () => {
             </li>)}
         </ul>
         <div className="category-items">
-            {results.map((product) => 
+            {results.map((product) =>
                 <div className="product" key={product.id}>
                     <div className="product-pic">
                         <img src={product.images[0]} alt="" />

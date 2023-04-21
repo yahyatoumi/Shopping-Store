@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Category from "./Category";
 import { FaAngleDown } from "react-icons/fa"
-import ProductContext from "./ProductsContext";
+import ProductContext from "../Contexts/ProductsContext";
 
 const Navbar = () => {
     const [categoryDisplayed, setCategoryDisplayed] = useState(false);
@@ -15,12 +15,12 @@ const Navbar = () => {
                 <ul>
                     <li className="category" onClick={() => setCategoryDisplayed(!categoryDisplayed)}>
                         Category
-                        <FaAngleDown/>
+                        <FaAngleDown />
                     </li>
-                    
+
                     {categoryDisplayed ? <ProductContext.Consumer>
-                        {value => <Category products={value[0] ? value[0].slice(0, 6) : []} /> }
-                    </ProductContext.Consumer>  : ""}
+                        {value => <Category products={value[0] ? value[0].slice(0, 6) : []} />}
+                    </ProductContext.Consumer> : ""}
                     <li>Deals</li>
                     <li>Whats's New</li>
                     <li>Delivery</li>
@@ -56,7 +56,7 @@ const Navbar = () => {
             <ul>
                 <li className="category" onClick={() => setCategoryDisplayed(!categoryDisplayed)}>
                     Category
-                    <FaAngleDown/>
+                    <FaAngleDown />
                 </li>
                 {categoryDisplayed ? <ProductContext.Consumer>
                     {value => <Category products={value[0] ? value[0].slice(0, 6) : []} />}
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <li>Whats's New</li>
                 <li>Delivery</li>
             </ul>
-        </div> : ""}        
+        </div> : ""}
     </nav>
 }
 export default Navbar;
