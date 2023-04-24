@@ -1163,7 +1163,6 @@ nav .small-screen-nav {
     position: fixed;
     left: 20%;
     top: 15vh;
-    /* padding: 1rem; */
     background: #fff;
     border-radius: 5px;
     height: 70%;
@@ -1172,6 +1171,7 @@ nav .small-screen-nav {
     overflow: scroll;
     z-index: 30;
     border-radius: 20px;
+    padding: 10px;
 }
 
 
@@ -1254,7 +1254,7 @@ nav .small-screen-nav {
 .item-holder {
     display: flex;
     justify-content: space-between;
-    height: 160px;
+    /* height: auto; */
     line-height: 150px;
     border-bottom: 1px solid #ddd;
 }
@@ -1285,6 +1285,7 @@ nav .small-screen-nav {
 
 .shopping-cart .price, .shopping-cart .total {
     text-align: center;
+    align-self: center;
 }
 
 .shopping-cart .amount {
@@ -1325,13 +1326,6 @@ nav .small-screen-nav {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-
-
-
-.cart-content {
-    overflow-y: auto;
-    max-height: 100%;
-}
 
 .total-price {
     width: 100%;
@@ -1384,6 +1378,110 @@ nav .small-screen-nav {
     .shopping-cart {
         width: 80%;
         left: 10%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .items-holder {
+        height: auto;
+    }
+
+    .shopping-cart .item-holder {
+        font-size: 12px;
+    }
+
+    .shopping-cart .infos {
+        width: 25%;
+    }
+
+    .shopping-cart .pic-holder {
+        display: none;
+        width: 100%;
+        /* height: auto; */
+        background-color: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin: 0;
+        margin-top: 15px;
+    }
+
+
+    .shopping-cart .pic-holder img {
+        width: 60%;
+        /* height: auto; */
+    }
+
+    .shopping-cart .amount, .shopping-cart .total {
+        width: 15%;
+    }
+
+    .shopping-cart .price {
+        width: 10%;
+        text-align: center;
+        align-self: center;
+    }
+
+    .shopping-cart .amount div {
+        width: 20px;
+        height: 20px;
+        outline: none;
+        border: none;
+        background-color: #003d29;
+        line-height: 20px;
+        text-align: center;
+        margin: 10px;
+        color: white;
+    }
+
+    .shopping-cart .amount button {
+        height: 20px;
+        width: 20px;
+        /* outline: none; */
+        border: none;
+        background-color: rgb(170, 167, 167, .2);
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .shopping-cart .amount {
+        align-self: left;
+    }
+
+    .shopping-cart .amount {
+        width: 35%;
+        justify-content: left;
+        justify-content: center;
+    }
+
+    .shopping-cart .total p {
+        height: 12px;
+        line-height: 12px;
+    }
+
+    .shopping-cart .total {
+        width: 20%;
+        height: 100px;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .shopping-cart .total .remove {
+        width: 60px;
+        margin-left: 0px;
+        height: 30px;
+        background-color: rgba(242, 26, 26, 0.9);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .shopping-cart .header div {
+        width: 25%;
     }
 }
 

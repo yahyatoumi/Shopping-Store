@@ -39,7 +39,7 @@ const Cart = () => {
         setCartItems(cartItems.filter((item) => item.id !== itemId))
         setTotalPrice(totalPrice - (itemQuantities[itemId] * price))
         const newQuantities = { ...itemQuantities };
-        newQuantities[itemId] = (newQuantities[itemId] || 0) + 1;
+        newQuantities[itemId] = 0;
         setItemQuantities(newQuantities)
     }
 
@@ -83,7 +83,9 @@ const Cart = () => {
                                 <button className="increment" onClick={() => incrementItemQuantity(item.id)}>+</button>
                             </div>
                             <div className="total">
+                                <p>
                                 {itemQuantities[item.id] ? "$" + item.price * itemQuantities[item.id] : "$0"}
+                                </p>
                                 <button className="remove" onClick={() => removeHandler(item.id, item.price)}>remove</button>
                             </div>
                         </div>
